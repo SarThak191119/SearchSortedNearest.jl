@@ -28,4 +28,14 @@ function searchsortednearest(a, x; by=identity, lt=isless, rev=false, distance=(
     return i
 end
 
+function searchsortednearest(a::Array{Float64},x::Array{Float64})
+    ind=Array{Int64}(undef,size(x,1))
+    for i=1:size(x,1)
+        ind[i]=searchsortednearest(a,x[i])
+    end
+    return ind
+end
+
+
+
 end
